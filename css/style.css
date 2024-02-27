@@ -1,0 +1,244 @@
+ /* set everything to 0*/
+*{
+  margin:0;
+  padding:0;
+}
+ /* font  and backgorund colour*/
+body{
+  font: 15px/1.5 Arial,Helvetica,sans-serif;
+  padding:0;
+  margin:0 auto;
+  background-color: white;
+
+/* gap from left side off the website*/
+}
+.wrapper{
+  margin:auto ;
+  width: 95%;
+}
+/* Logo*/
+.AstonLogoHeader{
+  width: 300px;
+  float:left;
+  margin-top: 25px;
+}
+/* Header*/
+header{
+  background:white;
+  border-bottom:purple 3px solid;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+/* Navigation*/
+nav {
+  float: right;
+  margin-top: 25px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color:purple;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color:purple
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color:purple;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+/* Navigation*/
+/* footer*/
+footer{
+  width: 98%;
+  padding: 20px;
+  color:white;
+  background-color:purple;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+#Welcome .banner {
+  background-color: purple; /* Background color for the banner */
+}
+
+
+#Welcome .wrapper{
+  text-align: center;
+  padding: 5px;
+}
+
+/* Welcome Text- font and colour*/
+#Welcome h1{
+  font-size: 36px;
+  color:white;
+  margin-bottom: 10px;
+}
+
+#Welcome h2{
+  font-size: 16px;
+  font-weight: bolder;
+  color:white;
+  margin-bottom: 10px;
+}
+
+
+/* Login and signup form*/
+
+.SignUpBox,
+.LoginBox{
+  width: 450px;
+  margin: 30px auto;
+}
+
+
+
+.SignUp,
+.Login
+{
+  width: 100%;
+  background: white;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 40px;
+  color: purple;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.SignUp-form
+{
+  background:white;
+  padding: 40px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  height: 500px;
+ 
+}
+
+.Login-form{
+  background:white;
+  padding: 40px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  height: 300px;
+ 
+}
+.Login-form input{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border: 2px solid #e9eaea;
+  color: #3e3e40;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.5s ease;
+
+}
+
+.SignUp-form input
+{
+  flex: 1; 
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid #e9eaea;
+  color: #3e3e40;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.asterisk {
+  margin-left: 5px; 
+  color: red;
+  font-size: 25px;
+}
+
+
+.input:focus{
+  border: 2px solid purple;
+}
+
+
+button{
+  width: 100%;
+  background: purple;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+span a{
+  text-decoration: none;
+  float:center;
+  color: purple;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px
+}
+/* Login and signup form*/
+/* error messages in red.*/
+
+.errormessage{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px
+
+}
+
