@@ -134,10 +134,30 @@ function loginUser($conn,$email,$password,){
         $_SESSION["useremail"] = $EmailExists["usersEmail"];
         $_SESSION["username"] = $EmailExists["usersName"];
 
+
+        $userId = $EmailExists["usersID"];
+        $sql = "SELECT usersDestination FROM users WHERE usersID = ?";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: BookParking.php?error=sqlerror");
+            exit();
+        } else {
+            mysqli_stmt_bind_param($stmt, "s", $userId);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if ($row = mysqli_fetch_assoc($result)) {
+                if (!empty($row["usersDestination"])) {
+                    $_SESSION["destination"] = $row["usersDestination"];
+                } else {
+                    // If destination doesn't exist, set a default destination
+                    $_SESSION["destination"] = "Default Location";
+                }
+            }
+        }
+       
         header("location:BookParking.php");
         exit();
 
     }
 
 }
-
