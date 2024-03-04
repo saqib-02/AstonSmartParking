@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Book Parking</title>
-    <?php include('LoginCheck.php');?> 
+    <?php include('Header.php');?> 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
