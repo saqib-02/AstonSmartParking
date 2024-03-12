@@ -118,6 +118,14 @@ footer{
   margin-bottom: 10px;
 }
 
+/*Upcoming Booking page Title */
+.wrapper h1{
+  font-size: 36px;
+  text-align: center;
+  color:purple;
+  margin-bottom: 10px;
+}
+
 
 /* Login and signup form*/
 
@@ -127,11 +135,15 @@ footer{
   margin: 30px auto;
 }
 
+.ConfirmBookingBox{
+  width: 650px;
+  margin: 30px auto;
 
+}
 
 .SignUp,
-.Login
-{
+.Login,
+.CarParkName{
   width: 100%;
   background: white;
   float: left;
@@ -146,7 +158,8 @@ footer{
   text-transform: uppercase;
 }
 
-.SignUp-form
+.SignUp-form,
+.ConfirmBookingform
 {
   background:white;
   padding: 40px;
@@ -203,11 +216,41 @@ footer{
   font-size: 25px;
 }
 
+.CBpageinput-wrapper {
+  display: flex;
+  flex-direction: column; 
+  margin-bottom: 25px;
+  position: relative; 
+}
+
+.label {
+  display: block; 
+  margin-bottom: 5px;
+}
+
+.ConfirmBookingform input {
+  padding: 15px; 
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 2px solid #e9eaea;
+  color: #3e3e40;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.CBpageasterisk {
+  position: absolute; 
+  top: 50%; 
+  right: -20px; 
+  transform: translateY(-50%); 
+  color: red;
+  font-size: 18px; 
+}
 
 .input:focus{
   border: 2px solid purple;
 }
-
 
 button{
   width: 100%;
@@ -260,8 +303,6 @@ html, body {
   padding: 10px;
   font-size: 16px;
 }
-
-
 
 .container {
   display: flex;
