@@ -161,3 +161,61 @@ function loginUser($conn,$email,$password,){
     }
 
 }
+
+ //ConfirmBooking
+
+function BookingEmptyFields($licenseplate, $arrivaltime, $departuretime) {
+    $result;
+    if (empty($licenseplate) || empty( $arrivaltime) || empty($departuretime)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+
+function DepartureIsBeforeArrival($arrivaltime, $departuretime) {
+    $result;
+    if ($arrivaltime >= $departuretime) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+
+function invalidLicensePlate($licenseplate){
+    if(preg_match("/\s/",$licenseplate)) {
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
+function BookingInfo($conn, $userId, $licenseplate, $arrivaltime, $departuretime, $totalduration, $totalcost) {
+    
+     //Reference CHATGPT- BUG FIX- Total cost wasnt being calculated in javascript so the fix was to recalulate on the server side aswell as seen below 
+    $arrival = new DateTime($arrivaltime);
+    $departure = new DateTime($departuretime);
+    $duration = $departure->diff($arrival)->h; 
+
+    $pricePerHour = 3;
+    $totalcost = $duration * $pricePerHour; 
+     //Reference CHATGPT- BUG FIX
+
+    $sql = "INSERT INTO ConfirmBooking (user_id, licenseplate, arrivaltime, departuretime, totalduration, totalcost) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location:ConfirmBooking.php?error=stmtfailed");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt, "issssd", $userId, $licenseplate, $arrivaltime, $departuretime, $totalduration, $totalcost);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location:ConfirmBooking.php?error=none");
+        exit();
+    }
+}
