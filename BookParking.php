@@ -27,6 +27,9 @@
                                  https://developers.google.com/maps/documentation/places/web-service 
                                 https://developers.google.com/maps/documentation/geocoding/
  -->
+ <?php
+session_start();
+?>
 
  <script>
 var markers = [];
@@ -38,6 +41,7 @@ var destinationMarker;
 // loads map if destination is valid and if not then an alert is sent stating destination cannot be found.
 function initMap() {
     var destination = "<?php echo isset($_SESSION['destination']) ? $_SESSION['destination'] : ''; ?>";
+    var isUserLoggedIn = "<?php echo isset($_SESSION['useremail']) ? 'true' : 'false'; ?>";
     var geocoder = new google.maps.Geocoder();
     
     
@@ -55,8 +59,6 @@ function initMap() {
                     marker.setMap(null);
                 });
                 markers = [];
-
-        
                 for (var i = 0; i < results.length; i++) {
                     createMarker(results[i]);
                 }
@@ -174,6 +176,7 @@ function initMap() {
     }
 
     if(destination==="Default Location") {
+        alert('Please enter the location you wish to find car parking');
         DefaultLocationMap();
         Searchbox();
     } else {
@@ -194,9 +197,14 @@ function initMap() {
                 createOrUpdateDestinationMarker(destinationLocation);
                 map.setCenter(destinationLocation);
                 addParkingMarkers(destinationLocation);
+                //checks if the user is logged in and has a invalid destination set before displaying erroor alert 
             } else {
+                if(isUserLoggedIn== 'true'){
                 alert('Your destination cannot be found: ' + destination);
                 DefaultLocationMap();
+                }else{ //loads default map without any error messages as user is not logged in or has not registered.
+                    DefaultLocationMap();
+                }   
             }
             Searchbox();
         });
