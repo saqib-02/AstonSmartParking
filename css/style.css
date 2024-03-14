@@ -248,6 +248,12 @@ footer{
   font-size: 18px; 
 }
 
+
+
+
+
+
+
 .input:focus{
   border: 2px solid purple;
 }
@@ -467,4 +473,28 @@ html, body {
   cursor: pointer;
   margin-bottom: 30px;
   margin-left: 1000px;
+}
+
+
+.bookingstable {
+  margin: 20px auto;
+  width: 80%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: purple;
+  font-weight: bold;
+  font-size: large;
+  color:#fff
 }
