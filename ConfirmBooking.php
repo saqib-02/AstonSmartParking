@@ -39,7 +39,7 @@ if (isset($_GET["error"])){
         echo"<p>Booking Failed!</p>";
      }
      else if($_GET["error"]=="none"){
-      echo"<p> Booking Successfully Added</p>";     
+      echo'<p style="color:green;"> Booking Successfully Added!See Upcoming Bookings</p>';   
      }
 }
  ?>   

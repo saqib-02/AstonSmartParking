@@ -38,7 +38,7 @@ if (isset($_GET["error"])){
         echo"<p>Something went wrong!</p>";
      }
      else if($_GET["error"]=="none"){
-      echo"<p> Registered Successfully!Please Login</p>";     
+      echo'<p style="color:green;"> Registered Successfully!Please Login</p>';     
      }
 }
  ?>   
