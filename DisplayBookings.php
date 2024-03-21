@@ -17,7 +17,7 @@ function DisplayUpcomingBookings (){
    // Reference-CHATGPT- BUG FIX- data wasnt being extracted as i didnt have the below two lines.
     mysqli_stmt_bind_param($stmt, "i", $userId);
     mysqli_stmt_execute($stmt);
- // Reference-CHATGPT- BUG FIX
+    // Reference-CHATGPT- BUG FIX
 
     $result = mysqli_stmt_get_result($stmt);
     
@@ -39,7 +39,7 @@ function DisplayUpcomingBookings (){
             echo "</tr>";
         }
     } else {
-        echo "<tr><td colspan='6'>No bookings found for this user.</td></tr>";
+        echo "<tr><td colspan='7'>No bookings found for this user.</td></tr>";
     }
     
 
